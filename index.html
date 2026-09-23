@@ -1,30 +1,439 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>A2 Studio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A2 Studio | Wedding Photography & Films</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.9);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+            background:
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+                radial-gradient(circle, #333333, #050505 70%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 110px);
+            letter-spacing: 10px;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: normal;
+            margin: 15px 0;
+        }
+
+        .hero p {
+            color: #cccccc;
+            max-width: 650px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            margin: 7px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .gold-btn {
+            background: #d4af37;
+            color: #000000;
+        }
+
+        .outline-btn {
+            border: 1px solid #d4af37;
+            color: white;
+        }
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+        }
+
+        .section-title p {
+            color: #999999;
+            margin-top: 10px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #111111;
+            border: 1px solid #222222;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .card:hover {
+            border-color: #d4af37;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+        }
+
+        .card p {
+            color: #999999;
+            font-size: 14px;
+        }
+
+        .icon {
+            font-size: 42px;
+        }
+
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            color: #aaaaaa;
+            font-size: 17px;
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .portfolio-box {
+            height: 280px;
+            background: linear-gradient(135deg, #222222, #080808);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777777;
+            border: 1px solid #222222;
+        }
+
+        .contact {
+            text-align: center;
+            background: #0d0d0d;
+        }
+
+        .contact p {
+            color: #aaaaaa;
+            margin: 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #050505;
+            color: #777777;
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 999;
+            background: #25D366;
+            color: white;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        @media(max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav .menu {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: 5px;
+            }
+
+            .hero h2 {
+                font-size: 19px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>A2 Studio</h1>
-    <h2>Wedding Photography & Videography</h2>
+<nav>
+    <div class="logo">
+        <span>A2</span> STUDIO
+    </div>
 
-    <p>Capturing your beautiful moments with cinematic style.</p>
+    <div class="menu">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-    <h2>Our Services</h2>
+<section class="hero" id="home">
 
-    <ul>
-        <li>Wedding Photography</li>
-        <li>Wedding Videography</li>
-        <li>Engagement Shoot</li>
-        <li>Pre-Wedding Shoot</li>
-        <li>Indoor Photography</li>
-        <li>Baby & Family Photography</li>
-    </ul>
+    <div class="hero-content">
 
-    <h2>Contact Us</h2>
+        <h1><span>A2</span> STUDIO</h1>
 
-    <p>WhatsApp: Your Number</p>
+        <h2>Wedding Photography & Cinematic Films</h2>
+
+        <p>
+            We capture your beautiful moments with a cinematic touch,
+            creating memories that last forever.
+        </p>
+
+        <div class="buttons">
+
+            <a class="btn gold-btn"
+               href="https://wa.me/919345895153"
+               target="_blank">
+                WhatsApp Us
+            </a>
+
+            <a class="btn outline-btn"
+               href="https://www.instagram.com/umesh_var_mj/"
+               target="_blank">
+                Instagram
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="services">
+
+    <div class="section-title">
+        <h2>Our <span>Services</span></h2>
+        <p>Professional photography & filmmaking</p>
+    </div>
+
+    <div class="services">
+
+        <div class="card">
+            <div class="icon">💍</div>
+            <h3>Wedding Photography</h3>
+            <p>Candid and traditional wedding photography.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎥</div>
+            <h3>Wedding Films</h3>
+            <p>Cinematic wedding films and memorable videos.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">❤️</div>
+            <h3>Engagement Shoot</h3>
+            <p>Elegant engagement and couple photography.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🌿</div>
+            <h3>Pre-Wedding</h3>
+            <p>Creative outdoor and cinematic pre-wedding shoots.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">👶</div>
+            <h3>Baby & Family</h3>
+            <p>Beautiful memories of babies and families.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📸</div>
+            <h3>Indoor Shoots</h3>
+            <p>Professional indoor portrait photography.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="portfolio">
+
+    <div class="section-title">
+        <h2>Our <span>Portfolio</span></h2>
+        <p>Selected moments captured by A2 Studio</p>
+    </div>
+
+    <div class="portfolio">
+
+        <div class="portfolio-box">Wedding Photo</div>
+        <div class="portfolio-box">Engagement Photo</div>
+        <div class="portfolio-box">Pre-Wedding Photo</div>
+        <div class="portfolio-box">Cinematic Film</div>
+        <div class="portfolio-box">Baby Shoot</div>
+        <div class="portfolio-box">Outdoor Shoot</div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="section-title">
+        <h2>About <span>A2 Studio</span></h2>
+    </div>
+
+    <div class="about">
+
+        <p>
+            A2 Studio is a photography and filmmaking studio
+            based in Mandapam, Tamil Nadu. We specialize in
+            wedding photography, cinematic films, engagement
+            shoots, pre-wedding photography and indoor shoots.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+
+        <h2>Let's Create <span>Memories</span></h2>
+
+        <p>Contact A2 Studio for your special day.</p>
+
+    </div>
+
+    <p>📱 WhatsApp: 9345895153</p>
+    <p>📷 Instagram: @umesh_var_mj</p>
+    <p>📍 Mandapam - 623518</p>
+
+    <div class="buttons">
+
+        <a class="btn gold-btn"
+           href="https://wa.me/919345895153"
+           target="_blank">
+            Contact on WhatsApp
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 A2 Studio. All Rights Reserved.
+</footer>
+
+<a class="whatsapp"
+   href="https://wa.me/919345895153"
+   target="_blank">
+    ☎
+</a>
 
 </body>
 </html>
